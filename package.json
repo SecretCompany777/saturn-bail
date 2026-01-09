@@ -2,8 +2,22 @@
     "name": "saturn-bail",
     "version": "1.1.1",
     "description": "777",
+        "keywords": [
+        "whatsapp",
+        "laurine-wabot",
+        "baileys",
+        "whatsapp-web",
+        "whatsapp-chat",
+        "whatsapp-group",
+        "botwa",
+        "stvnnvs"
+    ],
+    "homepage": "https://www.npmjs.com/package/@stvnnvs/baileys",
+    "repository": {
+        "url": "https://www.npmjs.com/package/@stvnnvs/baileys"
+    },
     "license": "MIT",
-    "author": "Ace",
+    "author": "Adhiraj Singh",
     "main": "lib/index.js",
     "types": "lib/index.d.ts",
     "files": [
