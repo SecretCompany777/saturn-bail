@@ -1,7 +1,7 @@
 // dugong.d.ts
 import { proto } from '../../WAProto';
 
-declare namespace kikyy {
+declare namespace secret {
     interface MediaUploadOptions {
         fileEncSha256?: Buffer;
         mediaType?: string;
@@ -190,65 +190,65 @@ declare namespace kikyy {
     }
 }
 
-declare class kikyy {
+declare class secret {
     constructor(
-        utils: kikyy.Utils,
-        waUploadToServer: kikyy.WAMediaUploadFunction,
+        utils: secret.Utils,
+        waUploadToServer: secret.WAMediaUploadFunction,
         relayMessageFn?: (jid: string, content: any, options?: any) => Promise<any>
     );
     
-    detectType(content: kikyy.MessageContent): 'PAYMENT' | 'PRODUCT' | 'INTERACTIVE' | 'ALBUM' | 'EVENT' | 'POLL_RESULT' | 'GROUP_STORY' | null;
+    detectType(content: secret.MessageContent): 'PAYMENT' | 'PRODUCT' | 'INTERACTIVE' | 'ALBUM' | 'EVENT' | 'POLL_RESULT' | 'GROUP_STORY' | null;
 
     handlePayment(
-        content: { requestPaymentMessage: kikyy.PaymentMessage },
+        content: { requestPaymentMessage: secret.PaymentMessage },
         quoted?: proto.IWebMessageInfo
     ): Promise<{ requestPaymentMessage: proto.Message.RequestPaymentMessage }>;
 
     handleProduct(
-        content: { productMessage: kikyy.ProductMessage },
+        content: { productMessage: secret.ProductMessage },
         jid: string,
         quoted?: proto.IWebMessageInfo
     ): Promise<{ viewOnceMessage: proto.Message.ViewOnceMessage }>;
 
     handleInteractive(
-        content: { interactiveMessage: kikyy.InteractiveMessage },
+        content: { interactiveMessage: secret.InteractiveMessage },
         jid: string,
         quoted?: proto.IWebMessageInfo
     ): Promise<{ interactiveMessage: proto.Message.InteractiveMessage }>;
 
     handleAlbum(
-        content: { albumMessage: kikyy.AlbumItem[] },
+        content: { albumMessage: secret.AlbumItem[] },
         jid: string,
         quoted?: proto.IWebMessageInfo
     ): Promise<any>;
 
     handleEvent(
-        content: { eventMessage: kikyy.EventMessage },
+        content: { eventMessage: secret.EventMessage },
         jid: string,
         quoted?: proto.IWebMessageInfo
     ): Promise<any>;
     
     handlePollResult(
-        content: { pollResultMessage: kikyy.PollResultMessage },
+        content: { pollResultMessage: secret.PollResultMessage },
         jid: string,
         quoted?: proto.IWebMessageInfo
     ): Promise<any>;
 
     handleGroupStory(
-        content: { groupStatusMessage: kikyy.GroupStatusMessage },
+        content: { groupStatusMessage: secret.GroupStatusMessage },
         jid: string,
         quoted?: proto.IWebMessageInfo
     ): Promise<any>;
 
     buildMessageContent(
         content: any,
-        opts?: kikyy.WAMessageContentGenerationOptions
+        opts?: secret.WAMessageContentGenerationOptions
     ): Promise<any>;
 
-    utils: kikyy.Utils;
+    utils: secret.Utils;
     relayMessage: (jid: string, content: any, options?: any) => Promise<any>;
-    waUploadToServer: kikyy.WAMediaUploadFunction;
-    bail: kikyy.BailUtils;
+    waUploadToServer: secret.WAMediaUploadFunction;
+    bail: secret.BailUtils;
 }
 
-export = kikyy;
+export = secret;
